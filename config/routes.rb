@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "questions#index"
+  resources :questions
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,7 +18,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Example resource route with options:
+  # Example resource route with options:FactoryGirl::Syntax::Methods
   #   resources :products do
   #     member do
   #       get 'short'
