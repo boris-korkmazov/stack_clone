@@ -8,6 +8,15 @@ class AnswersController < ApplicationController
     end
   end
 
+  def update
+    @answer = Answer.find(params[:id])
+    @answer.update(answer_params)
+    @question = @answer.question
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def answer_params

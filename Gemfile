@@ -58,6 +58,8 @@ group :development, :test do
 
   gem 'poltergeist'
 
+  gem 'selenium-webdriver'
+
   gem 'database_cleaner'
 
 end

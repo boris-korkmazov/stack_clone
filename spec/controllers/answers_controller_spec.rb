@@ -4,6 +4,7 @@ RSpec.describe AnswersController, type: :controller do
   let!(:question) do
     create :question
   end
+
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'save new answer in the database' do
@@ -26,6 +27,32 @@ RSpec.describe AnswersController, type: :controller do
 
         expect(response).to render_template :create
       end
+    end
+  end
+
+  describe 'PATCH #update' do
+    let!(:answer){
+      create :answer, question: question
+    }
+    it 'assigns the requested answer to @answer' do
+      patch :update, question_id: question, id: answer, answer: attributes_for(:answer), format: :js
+      expect(assigns[:answer]).to eq answer
+    end
+
+    it 'assigns the requested question to @question' do
+      patch :update, question_id: question, id: answer, answer: attributes_for(:answer), format: :js
+      expect(assigns[:question]).to eq question
+    end
+
+    it 'changes question attributes' do
+      patch :update, question_id: question, id: answer, answer: {body: 'new body'}, format: :js
+      answer.reload
+      expect(answer.body).to eq 'new body'
+    end
+
+    it 'render the update template' do
+      patch :update, question_id: question, id: answer, answer: attributes_for(:answer), format: :js
+      expect(response).to render_template :update
     end
   end
 end
