@@ -23,6 +23,8 @@ module StackClone
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.active_record.schema_format = :sql
+
     config.generators do |g|
       g.test_framework :rspec,
                         :fixture => true,
