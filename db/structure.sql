@@ -70,7 +70,8 @@ CREATE TABLE attachments (
     file character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    question_id integer
+    attachable_id integer,
+    attachable_type character varying
 );
 
 
@@ -242,10 +243,10 @@ CREATE INDEX index_answers_on_question_id ON answers USING btree (question_id);
 
 
 --
--- Name: index_attachments_on_question_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_attachments_on_attachable_id_and_attachable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_attachments_on_question_id ON attachments USING btree (question_id);
+CREATE INDEX index_attachments_on_attachable_id_and_attachable_type ON attachments USING btree (attachable_id, attachable_type);
 
 
 --
@@ -270,14 +271,6 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: fk_rails_720d265f40; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY attachments
-    ADD CONSTRAINT fk_rails_720d265f40 FOREIGN KEY (question_id) REFERENCES questions(id);
-
-
---
 -- PostgreSQL database dump complete
 --
 
@@ -294,4 +287,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150825071337');
 INSERT INTO schema_migrations (version) VALUES ('20150910131704');
 
 INSERT INTO schema_migrations (version) VALUES ('20150910132339');
+
+INSERT INTO schema_migrations (version) VALUES ('20150912171158');
 

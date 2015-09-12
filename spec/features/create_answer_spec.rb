@@ -15,7 +15,7 @@ RSpec.feature 'User create answer', %q{
 
     visit question_path(question)
 
-    fill_in 'Your answer', with: 'My answer'
+    fill_in 'answer_body_create', with: 'My answer'
     click_on 'Create'
 
     expect(current_path).to eq question_path(question)

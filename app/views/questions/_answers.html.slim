@@ -1,6 +1,13 @@
 - @question.answers.each do |answer|
   - if not answer.new_record?
+
     p= answer.body
+    p Attachments
+    ul
+      -answer.attachments.each do |a|
+        li
+          a[href=a.file.url]
+            = a.file.identifier
     - if user_signed_in?
       p= link_to 'Edit', '', class: 'edit-answer-link', data: {answer_id: answer.id}
       p
