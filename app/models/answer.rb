@@ -8,4 +8,14 @@ class Answer < ActiveRecord::Base
 
   validates :body, presence: true
 
+  after_create :calculate_reputation
+
+  private
+
+  def calculate_reputation
+    Reputation.delay.calculate(self)
+  end
+
+
+
 end

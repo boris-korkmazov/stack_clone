@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +45,40 @@ gem 'slim-rails'
 gem 'carrierwave'
 
 gem 'remotipart'
+
+gem 'cocoon'
+
+gem 'private_pub'
+
+gem 'thin'
+
+gem 'responders'
+
+gem 'cancancan'
+
+gem 'pundit'
+
+gem 'doorkeeper'
+
+gem 'active_model_serializers'
+
+gem 'oj'
+
+gem 'oj_mimic_json'
+
+#gem 'delayed_job_active_record'
+
+gem 'sidekiq'
+
+gem 'sinatra', require: nil
+
+gem 'whenever'
+
+gem 'sidetiq'
+
+gem 'mysql2'
+
+gem 'thinking-sphinx'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,9 +104,12 @@ group :development, :test do
 
   gem 'database_cleaner'
 
+  gem 'spring-commands-rspec'
+
 end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'json_spec'
 end
 

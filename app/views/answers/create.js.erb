@@ -4,6 +4,10 @@
     <%end%>
 <% else %>
     $('#errors').html('');
-    $('.answers').html('<%= j render 'questions/answers' %>');
+    <% publish_to "/questions/#{@question.id}/answer" do %>
+        $('.answers').html('<%= j render 'questions/answers' %>');
+    <% end %>
     $('#answer_body_create').val('');
+
+
 <% end %>

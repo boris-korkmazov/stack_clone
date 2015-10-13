@@ -9,3 +9,11 @@ $ ->
     $("form#edit-answer-#{answerId}").show()
     e.preventDefault()
   )
+
+ # $('form.new_answer').bind('ajax:success', (e, data, status, xhr)->
+ #   $('#errors').html('');
+ #   $('.answers').html(xhr.responseText);
+ #   $('#answer_body_create').val('');
+ # )
+ # .bind "ajax:error", (e, xhr, status, error)->
+ #   $('#errors').html(xhr.responseText)
