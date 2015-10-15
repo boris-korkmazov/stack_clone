@@ -118,6 +118,8 @@ group :development, :test do
 
   gem 'capistrano-rvm', require: false
 
+  gem 'capistrano-sidekiq', require: false
+
 end
 
 group :test do
